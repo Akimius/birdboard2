@@ -10,3 +10,9 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+/.idea/vcs.xml
+/.idea/dataSources/9873bd02-c5fd-425d-b601-b417cec2e2c6.xml
+/.idea/dataSources.xml
+/.idea/dataSources/9873bd02-c5fd-425d-b601-b417cec2e2c6/storage_v2/_src_/schema/information_schema.FNRwLQ.meta
+/.idea/php-test-framework.xml
+/.idea/dataSources.local.xml
