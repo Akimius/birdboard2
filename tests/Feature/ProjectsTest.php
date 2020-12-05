@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Project;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -40,6 +41,15 @@ class ProjectsTest extends TestCase
         $attributes = Project::factory()->make(['description' => ''])->toArray();
 
         $this->post('/projects', $attributes)->assertSessionHasErrors('description');
+    }
+
+    public function test_a_project_requires_an_owner(): void
+    {
+        $this->withoutExceptionHandling();
+        $attributes = Project::factory()->make()->toArray();
+
+        $this->post('/projects', $attributes)->assertRedirect('login');
+
     }
 
     public function test_a_user_can_view_a_project(): void

@@ -52,6 +52,8 @@ class ProjectController extends Controller
             ]
         );
 
+        $attributes['owner_id'] = auth()->id();
+
         Project::create($attributes);
 
         return redirect()->route('projects.index');
