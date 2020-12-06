@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand />
     <select />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5433c4f-70e8-4be5-89b6-cb161c03c686" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/Unit/UserTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProjectController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Project.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/ProjectFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ProjectFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/ProjectSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/ProjectSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Feature/ProjectsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/ProjectsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/ProjectTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/ProjectTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/UserTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +41,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="PhpDebugGeneral" xdebug_debug_port="9004" xdebug_force_break_when_no_path_mapping="false" xdebug_force_break_when_outside_project="false" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
@@ -152,28 +163,28 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="PHPUnit.ProjectsTest">
-    <configuration name="ProjectsTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\ProjectsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/ProjectsTest.php" scope="Class" />
+  <component name="RunManager" selected="PHPUnit.ProjectTest">
+    <configuration name="ProjectTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\ProjectTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/ProjectTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="ProjectsTest.test_a_user_can_create_a_project" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\ProjectsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/ProjectsTest.php" method="test_a_user_can_create_a_project" scope="Method" />
+    <configuration name="ProjectTest.test_a_project_belongs_to_an_owner" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\ProjectTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/ProjectTest.php" method="test_a_project_belongs_to_an_owner" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="ProjectsTest.test_a_user_can_view_a_project" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\ProjectsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/ProjectsTest.php" method="test_a_user_can_view_a_project" scope="Method" />
+    <configuration name="ProjectTest.test_a_project_knows_its_path" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\ProjectTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/ProjectTest.php" method="test_a_project_knows_its_path" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="ProjectsTest.test_only_authenticated_users_can_create_projects" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\ProjectsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/ProjectsTest.php" method="test_only_authenticated_users_can_create_projects" scope="Method" />
+    <configuration name="ProjectTest.test_belongs_to_an_owner" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\ProjectTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/ProjectTest.php" method="test_belongs_to_an_owner" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="UserTest.test_a_user_has_projects" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Unit\UserTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/UserTest.php" method="test_a_user_has_projects" scope="Method" />
+    <configuration name="ProjectsTest.test_an_authenticated_user_cannot_view_the_projects_of_others" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\ProjectsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/ProjectsTest.php" method="test_an_authenticated_user_cannot_view_the_projects_of_others" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -182,11 +193,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.ProjectsTest" />
-        <item itemvalue="PHPUnit.UserTest.test_a_user_has_projects" />
-        <item itemvalue="PHPUnit.ProjectsTest.test_a_user_can_view_a_project" />
-        <item itemvalue="PHPUnit.ProjectsTest.test_only_authenticated_users_can_create_projects" />
-        <item itemvalue="PHPUnit.ProjectsTest.test_a_user_can_create_a_project" />
+        <item itemvalue="PHPUnit.ProjectTest" />
+        <item itemvalue="PHPUnit.ProjectTest.test_belongs_to_an_owner" />
+        <item itemvalue="PHPUnit.ProjectTest.test_a_project_belongs_to_an_owner" />
+        <item itemvalue="PHPUnit.ProjectTest.test_a_project_knows_its_path" />
+        <item itemvalue="PHPUnit.ProjectsTest.test_an_authenticated_user_cannot_view_the_projects_of_others" />
       </list>
     </recent_temporary>
   </component>
@@ -224,19 +235,15 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="add vue scaffolding" />
-    <option name="LAST_COMMIT_MESSAGE" value="add vue scaffolding" />
+    <MESSAGE value="ep 5 completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="ep 5 completed" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/Http/Controllers/ProjectController.php</url>
-          <line>47</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="artisan">
+        <watch expression="$usersId" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

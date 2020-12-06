@@ -21,7 +21,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        $projects = auth()->user()->projects;
 
         return view('welcome', ['projects' => $projects]);
 
@@ -40,10 +40,9 @@ class ProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
      * @return Project|Application|RedirectResponse|Redirector
      */
-    public function store(Request $request)
+    public function store()
     {
         $attributes = request()->validate(
             [
@@ -51,8 +50,6 @@ class ProjectController extends Controller
                 'description' => ['required'],
             ]
         );
-
-        //$attributes['owner_id'] = auth()->id();
 
         auth()->user()->projects()->create($attributes);
 
@@ -64,10 +61,14 @@ class ProjectController extends Controller
      * Display the specified resource.
      *
      * @param Project $project
-     * @return Application|Factory|View
+     * @return View
      */
-    public function show(Project $project)
+    public function show(Project $project): View
     {
+        if (auth()->user()->isNot($project->owner)) {
+            abort(403);
+        }
+
         return view('projects_show', ['project' => $project]);
     }
 

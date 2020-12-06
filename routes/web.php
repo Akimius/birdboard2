@@ -17,8 +17,16 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
-Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('project.show');
-Route::post('/projects', [ProjectController::class, 'store'])->middleware('auth');
+Route::group(
+    [
+        'middleware' => 'auth',
+        'prefix'     => '/projects'
+    ],
+    function () {
+        Route::get('', [ProjectController::class, 'index'])->name('projects.index');
+        Route::get('/{project}', [ProjectController::class, 'show'])->name('project.show');
+        Route::post('', [ProjectController::class, 'store']);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+        Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    }
+);
