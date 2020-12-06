@@ -17,11 +17,11 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Application|Factory|View
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
-        $projects = auth()->user()->projects;
+        $projects = auth()->user()->projects ?? null;
 
         return view('welcome', ['projects' => $projects]);
 
@@ -30,11 +30,11 @@ class ProjectController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return View
      */
-    public function create()
+    public function create(): View
     {
-        //
+        return view('projects.create');
     }
 
     /**
