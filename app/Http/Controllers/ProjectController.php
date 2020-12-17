@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -23,7 +21,7 @@ class ProjectController extends Controller
     {
         $projects = auth()->user()->projects ?? null;
 
-        return view('welcome', ['projects' => $projects]);
+        return view('projects.index', ['projects' => $projects]);
 
     }
 
@@ -69,7 +67,7 @@ class ProjectController extends Controller
             abort(403);
         }
 
-        return view('projects_show', ['project' => $project]);
+        return view('projects.show', ['project' => $project]);
     }
 
     /**
