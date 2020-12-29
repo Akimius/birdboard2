@@ -11,20 +11,20 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    
+
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
     <div id="app">
-        <header class="bg-blue-900 py-6">
+        <header class="bg-gray-200 py-6">
             <div class="container mx-auto flex justify-between items-center px-6">
                 <div>
                     <a href="{{ url('/projects') }}" class="text-lg font-semibold text-gray-100 no-underline">
-                        {{ config('app.name', 'Laravel') }}
+                        <img src="https://raw.githubusercontent.com/bennkingy/birdboard/e94fb403a384abca1d3b455fa723e086683622b9/public/images/logo.svg">
                     </a>
                 </div>
-                <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
+                <nav class="space-x-4 text-black text-sm sm:text-base">
                     @guest
                         <a class="no-underline hover:underline" href="{{ route('login') }}">{{ __('Login') }}</a>
                         @if (Route::has('register'))
@@ -44,9 +44,9 @@
                 </nav>
             </div>
         </header>
-        <div>
+        <main class="container mx-auto py-4">
             @yield('content')
-        </div>
+        </main>
     </div>
 </body>
 </html>

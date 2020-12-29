@@ -1,5 +1,5 @@
-@extends('layouts.app')
-
+{{-- View extends layouts/app.blade.php --}}
+@extends ('layouts.app')
 @section('content')
     <div class="text-center mt-24">
         <h2 class="text-4xl tracking-tight">

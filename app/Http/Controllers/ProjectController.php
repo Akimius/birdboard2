@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Http;
 
 class ProjectController extends Controller
 {
@@ -22,7 +23,6 @@ class ProjectController extends Controller
         $projects = auth()->user()->projects ?? null;
 
         return view('projects.index', ['projects' => $projects]);
-
     }
 
     /**
