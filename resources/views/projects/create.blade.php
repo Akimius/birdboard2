@@ -7,7 +7,11 @@
         </h2>
     </div>
     <div class="flex justify-center my-2 mx-4 md:mx-0">
-        <form class="w-full max-w-xl bg-white rounded-lg shadow-md p-6">
+        <form class="w-full max-w-xl bg-white rounded-lg shadow-md p-6"
+              method="POST"
+              action="{{route('project.store')}}"
+        >
+            @csrf
             <div class="flex flex-wrap -mx-3 mb-6">
                 <!-- START title -->
                 <div class="w-full md:w-full px-3 mb-6">

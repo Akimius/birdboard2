@@ -36,7 +36,7 @@ class ManageProjectsTest extends TestCase
     public function test_a_user_can_create_a_project(): void
     {
         $this->withoutExceptionHandling();
-        $this->actingAs(User::factory()->create());
+        $this->signIn();
 
         $this->get('/projects/create')->assertStatus(200);
 
@@ -45,16 +45,17 @@ class ManageProjectsTest extends TestCase
             'description'  => $this->faker->paragraph,
         ];
 
-        $this->post('/projects', $attributes)->assertRedirect('/projects');
+        $this->post('/projects', $attributes)
+            ->assertRedirect('/projects');
 
         $this->assertDatabaseHas('projects', $attributes);
 
-        $this->get('/projects')->assertSee($attributes['title']);
+        $this->get('/projects')->assertSee((new Project())->getTitle($attributes['title']));
     }
 
     public function test_an_authenticated_user_cannot_view_the_projects_of_others(): void
     {
-        $this->actingAs(User::factory()->create());
+        $this->signIn();
 
         $project = Project::factory()->create();
 
@@ -64,7 +65,8 @@ class ManageProjectsTest extends TestCase
 
     public function test_a_project_requires_a_title(): void
     {
-        $this->actingAs(User::factory()->create());
+        $this->signIn();
+
         $attributes = Project::factory()->make(['title' => ''])->toArray();
 
         $this->post('/projects', $attributes)->assertSessionHasErrors('title');
@@ -72,7 +74,7 @@ class ManageProjectsTest extends TestCase
 
     public function test_a_project_requires_a_description(): void
     {
-        $this->actingAs(User::factory()->create());
+        $this->signIn();
 
         $attributes = Project::factory()->make(['description' => ''])->toArray();
 
@@ -81,13 +83,13 @@ class ManageProjectsTest extends TestCase
 
     public function test_a_user_can_view_their_project(): void
     {
-        $this->actingAs(User::factory()->create());
+        $this->signIn();
         $this->withoutExceptionHandling();
 
         $project = Project::factory()->create(['owner_id' => auth()->id()]);
 
         $this->get($project->path())
-            ->assertSee($project->title)
-            ->assertSee($project->description);
+            ->assertSee($project->getTitle())
+            ->assertSee($project->getDescription());
     }
 }

@@ -9,7 +9,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
-use Illuminate\Support\Facades\Http;
 
 class ProjectController extends Controller
 {
@@ -49,9 +48,9 @@ class ProjectController extends Controller
             ]
         );
 
-        auth()->user()->projects()->create($attributes);
+        $project = auth()->user()->projects()->create($attributes);
 
-        return redirect()->route('projects.index');
+        return redirect($project->path());
 
     }
 
