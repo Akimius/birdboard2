@@ -6,7 +6,6 @@ use App\Models\Project;
 use App\Models\Task;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 
@@ -37,6 +36,9 @@ class ProjectTasksController extends Controller
         if (auth()->user()->isNot($project->owner)) {
             abort(403);
         }
+
+        request()->validate(['body' => 'required']);
+
 
         $task->update(
             [

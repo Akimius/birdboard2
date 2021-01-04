@@ -2,13 +2,24 @@
 
 namespace Tests\Unit;
 
+use App\Models\Project;
 use App\Models\Task;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 class TaskTest extends TestCase
 {
     use RefreshDatabase;
+
+    /**
+     * @return void
+     */
+    public function test_a_task_belongs_to_a_project(): void
+    {
+        $task = Task::factory()->create();
+
+        self::assertInstanceOf(Project::class, $task->project);
+    }
 
     /**
      * @return void
