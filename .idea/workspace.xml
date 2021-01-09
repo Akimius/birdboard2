@@ -9,15 +9,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5433c4f-70e8-4be5-89b6-cb161c03c686" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Policies/ProjectPolicy.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Setup/ProjectFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProjectController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProjectTasksController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProjectTasksController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_22_151709_create_projects_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_22_151709_create_projects_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/projects/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/projects/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Feature/ManageProjectsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/ManageProjectsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/ProjectTasksTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/ProjectTasksTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestCase.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,21 +206,25 @@
       <recent name="$PROJECT_DIR$/resources/views/projects" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.ManageProjectsTest.test_an_authenticated_user_cannot_update_the_projects_of_others">
-    <configuration name="ManageProjectsTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\ManageProjectsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/ManageProjectsTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ManageProjectsTest.test_a_user_can_create_a_project" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\ManageProjectsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/ManageProjectsTest.php" method="test_a_user_can_create_a_project" scope="Method" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="PHPUnit.ManageProjectsTest.test_a_user_can_view_their_project">
     <configuration name="ManageProjectsTest.test_a_user_can_update_a_project" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\ManageProjectsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/ManageProjectsTest.php" method="test_a_user_can_update_a_project" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="ManageProjectsTest.test_an_authenticated_user_cannot_update_the_projects_of_others" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\ManageProjectsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/ManageProjectsTest.php" method="test_an_authenticated_user_cannot_update_the_projects_of_others" scope="Method" />
+    <configuration name="ManageProjectsTest.test_a_user_can_view_their_project" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\ManageProjectsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/ManageProjectsTest.php" method="test_a_user_can_view_their_project" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ProjectTasksTest.test_a_project_can_have_tasks" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\ProjectTasksTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/ProjectTasksTest.php" method="test_a_project_can_have_tasks" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ProjectTasksTest.test_a_task_requires_a_body" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\ProjectTasksTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/ProjectTasksTest.php" method="test_a_task_requires_a_body" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ProjectTasksTest.test_only_the_owner_of_a_project_may_update_a_task" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\ProjectTasksTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/ProjectTasksTest.php" method="test_only_the_owner_of_a_project_may_update_a_task" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="Unnamed" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" nameIsGenerated="true" server_name="Unnamed">
@@ -231,10 +232,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.ManageProjectsTest.test_an_authenticated_user_cannot_update_the_projects_of_others" />
+        <item itemvalue="PHPUnit.ManageProjectsTest.test_a_user_can_view_their_project" />
         <item itemvalue="PHPUnit.ManageProjectsTest.test_a_user_can_update_a_project" />
-        <item itemvalue="PHPUnit.ManageProjectsTest" />
-        <item itemvalue="PHPUnit.ManageProjectsTest.test_a_user_can_create_a_project" />
+        <item itemvalue="PHPUnit.ProjectTasksTest.test_a_task_requires_a_body" />
+        <item itemvalue="PHPUnit.ProjectTasksTest.test_a_project_can_have_tasks" />
+        <item itemvalue="PHPUnit.ProjectTasksTest.test_only_the_owner_of_a_project_may_update_a_task" />
       </list>
     </recent_temporary>
   </component>
@@ -280,7 +282,8 @@
     <MESSAGE value="css" />
     <MESSAGE value="ep. 13" />
     <MESSAGE value="ep. 15 completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="ep. 15 completed" />
+    <MESSAGE value="ep. 16 completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="ep. 16 completed" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

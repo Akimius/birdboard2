@@ -6,6 +6,7 @@ use App\Models\Project;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Tests\Setup\ProjectFactory;
 use Tests\TestCase;
 
 class ManageProjectsTest extends TestCase
@@ -78,13 +79,11 @@ class ManageProjectsTest extends TestCase
      */
     public function test_a_user_can_update_a_project(): void
     {
-        $this->withoutExceptionHandling();
+        $project = app(ProjectFactory::class)
+            ->create();
 
-        $this->signIn();
-
-        $project = Project::factory()->create(['owner_id' => auth()->id()]);
-
-        $this->patch($project->path(), [
+        $this->actingAs($project->owner)
+            ->patch($project->path(), [
             'notes' => 'Changed'
         ])->assertRedirect($project->path());
 
@@ -145,12 +144,12 @@ class ManageProjectsTest extends TestCase
      */
     public function test_a_user_can_view_their_project(): void
     {
-        $this->signIn();
-        $this->withoutExceptionHandling();
+        $project = app(ProjectFactory::class)
+            ->withTasks(1)
+            ->create();
 
-        $project = Project::factory()->create(['owner_id' => auth()->id()]);
-
-        $this->get($project->path())
+        $this->actingAs($project->owner)
+            ->get($project->path())
             ->assertSee($project->getTitle())
             ->assertSee($project->getDescription());
     }
