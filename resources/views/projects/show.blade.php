@@ -53,28 +53,27 @@
                 </div>
 
                 <div class="mb-6">
-
-                    <!-- General Notes -->
-                    <h2 class="text-grey font-normal text-lg mb-3">General Notes</h2>
-                    <textarea class="card w-full" style="min-height: 200px;">Lorem Ipsum.</textarea>
-
+                    <form method="POST" action="{{$project->path()}}">
+                        @csrf
+                        @method('PATCH')
+                        <!-- General Notes -->
+                        <h2 class="text-grey font-normal text-lg mb-3">General Notes</h2>
+                        <textarea class="card w-full"
+                                  name="notes"
+                                  style="min-height: 200px;"
+                                  placeholder="Anything special"
+                        >{{$project->notes}}</textarea>
+                        <button type="submit" class="button mt-2">Save</button>
+                    </form>
                 </div>
-
             </div>
-
             <div class="lg:w-1/4 px-3">
-
                 @include ('projects.card')
-
                 <a href="/projects">Go Back</a>
-
             </div>
 
         </div>
 
     </main>
-
-    </body>
-    </html>
 
 @endsection

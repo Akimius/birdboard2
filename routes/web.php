@@ -28,6 +28,7 @@ Route::group(
         Route::get('/create', [ProjectController::class, 'create'])->name('projects.create');
         Route::get('/{project}', [ProjectController::class, 'show'])->name('project.show');
         Route::post('', [ProjectController::class, 'store'])->name('project.store');
+        Route::patch('/{project}', [ProjectController::class, 'update'])->name('project.update');
         Route::post('{project}/tasks', [ProjectTasksController::class, 'store'])->name('task.store');
         Route::patch('{project}/tasks/{task}', [ProjectTasksController::class, 'update'])->name('task.update');
 

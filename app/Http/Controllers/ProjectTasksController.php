@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use App\Models\Task;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
@@ -11,11 +12,14 @@ use Illuminate\Routing\Redirector;
 
 class ProjectTasksController extends Controller
 {
+    /**
+     * @param Project $project
+     * @return RedirectResponse
+     * @throws AuthorizationException
+     */
     public function store(Project $project): RedirectResponse
     {
-        if (auth()->user()->isNot($project->owner)) {
-            abort(403);
-        }
+        $this->authorize('update', $project);
 
         request()->validate(['body' => 'required']);
 
@@ -30,15 +34,13 @@ class ProjectTasksController extends Controller
      * @param Project $project
      * @param Task $task
      * @return Application|RedirectResponse|Response|Redirector
+     * @throws AuthorizationException
      */
     public function update(Project $project, Task $task)
     {
-        if (auth()->user()->isNot($project->owner)) {
-            abort(403);
-        }
+        $this->authorize('update', $project);
 
         request()->validate(['body' => 'required']);
-
 
         $task->update(
             [

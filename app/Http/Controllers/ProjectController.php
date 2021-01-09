@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -45,6 +46,7 @@ class ProjectController extends Controller
             [
                 'title'       => ['required'],
                 'description' => ['required'],
+                'notes'       => ['min:3'],
             ]
         );
 
@@ -59,12 +61,11 @@ class ProjectController extends Controller
      *
      * @param Project $project
      * @return View
+     * @throws AuthorizationException
      */
     public function show(Project $project): View
     {
-        if (auth()->user()->isNot($project->owner)) {
-            abort(403);
-        }
+        $this->authorize('update', $project);
 
         return view('projects.show', ['project' => $project]);
     }
@@ -72,7 +73,7 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Project  $project
+     * @param Project $project
      * @return Response
      */
     public function edit(Project $project)
@@ -83,19 +84,23 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param  \App\Models\Project  $project
-     * @return Response
+     * @param Project $project
+     * @return Application|RedirectResponse|Redirector
+     * @throws AuthorizationException
      */
-    public function update(Request $request, Project $project)
+    public function update(Project $project)
     {
-        //
+        $this->authorize('update', $project);
+
+        $project->update(['notes' => request('notes')]);
+
+        return redirect($project->path());
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Project  $project
+     * @param Project $project
      * @return Response
      */
     public function destroy(Project $project)
