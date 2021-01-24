@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
@@ -41,13 +42,7 @@ class ProjectController extends Controller
      */
     public function store()
     {
-        $attributes = request()->validate(
-            [
-                'title'       => ['required'],
-                'description' => ['required'],
-                'notes'       => ['min:3'],
-            ]
-        );
+        $attributes = $this->validateFields();
 
         $project = auth()->user()->projects()->create($attributes);
 
@@ -73,11 +68,13 @@ class ProjectController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Project $project
-     * @return Response
+     * @return Application|Factory|View|Response
      */
     public function edit(Project $project)
     {
-        //
+        //$this->authorize('edit', $project);
+
+        return view('projects.edit', ['project' => $project]);
     }
 
     /**
@@ -91,7 +88,8 @@ class ProjectController extends Controller
     {
         $this->authorize('update', $project);
 
-        $project->update(['notes' => request('notes')]);
+        $attributes = $this->validateFields();
+        $project->update($attributes);
 
         return redirect($project->path());
     }
@@ -105,5 +103,19 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         //
+    }
+
+    /**
+     * @return array
+     */
+    private function validateFields(): array
+    {
+        return request()->validate(
+            [
+                'title' => ['required'],
+                'description' => ['required'],
+                'notes' => ['min:3'],
+            ]
+        );
     }
 }

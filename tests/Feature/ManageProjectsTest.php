@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use App\Models\Project;
-use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\Setup\ProjectFactory;
@@ -84,10 +83,18 @@ class ManageProjectsTest extends TestCase
 
         $this->actingAs($project->owner)
             ->patch($project->path(), [
-            'notes' => 'Changed'
+            'title'       => 'Changed',
+            'description' => 'Changed',
+            'notes'       => 'Changed',
         ])->assertRedirect($project->path());
 
-        $this->assertDatabaseHas('projects', ['notes' => 'Changed']);
+        $this->get($project->path() . '/edit')->assertOk();
+
+        $this->assertDatabaseHas('projects', [
+            'title'       => 'Changed',
+            'description' => 'Changed',
+            'notes'       => 'Changed',
+        ]);
     }
 
     /**
